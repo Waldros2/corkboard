@@ -1,0 +1,23 @@
+{
+    "name": "corkboard-devcontainer",
+    "dockerFile": "Dockerfile",
+    "init": true,
+    "appPort": 8080,
+    "forwardPorts": [
+      8080
+    ],
+    "workspaceMount": "source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind,consistency=cached",
+    "workspaceFolder": "${localWorkspaceFolder}",
+    "mounts": [
+      {
+        "source": "corkboard-${devcontainerId}-home",
+        "target": "/root",
+        "type": "volume"
+      },
+      {
+        "source": "/var/run/docker.sock.raw",
+        "target": "/var/run/docker.sock",
+        "type": "bind"
+      }
+    ]
+  }
